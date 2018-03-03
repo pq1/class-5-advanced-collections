@@ -180,13 +180,7 @@ def test_step_3_group_by_customer_and_invoice():
 def test_step_4_calculate_totals():
     products = calculate_total_per_invoices(products_string)
 
-    assert products == {
-        '17850': {
-            '536365': 139.12,
-            '536366': 22.20,
-            '536372': 22.20,
-            '536373': 15.30,
-        },
+    assert products == {'17850': { '536365': 139.12,'536366': 22.20,'536372': 22.20,'536373': 15.30,},
         '13047': {
             '536367': 278.73,
             '536368': 70.05,
