@@ -11,14 +11,17 @@ def calculate_total_per_invoices(products_string):
     for product in products_list:
         # 1. Group customer
         customer_id = product[-2]
+        # Group by customer
         products.setdefault(customer_id, {})
         
         # 2. Group a invoice
-        invoice_id = product[0]
-        unit = int(product[3])
-        unitprice = float(product[-3])
-        total = unit * unitprice
+        invoice_id = product[0] # Pull invoice
+        unit = int(product[3]) # Pull the unit
+        unitprice = float(product[-3]) # Pull unitprice
+        total = unit * unitprice # Get total of unit and unitprice
+        # Group by invoice
         products[customer_id].setdefault(invoice_id, 0)
+        # Add each total to the invoice group
         products[customer_id][invoice_id] += round(total, 2)
     return products
     
